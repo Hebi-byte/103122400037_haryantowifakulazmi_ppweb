@@ -1,0 +1,239 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #333333;
+}
+
+/* =========================
+   GRID LAYOUT
+========================= */
+
+.container {
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 220px 1fr;
+
+    grid-template-rows: auto 1fr auto;
+
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    grid-area: header;
+
+    background-color: #2563eb;
+    color: white;
+
+    padding: 20px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* =========================
+   FLEXBOX NAVBAR
+========================= */
+
+.navbar {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    grid-area: sidebar;
+
+    background-color: #1e293b;
+    color: white;
+
+    padding: 25px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    grid-area: content;
+
+    padding: 30px;
+}
+
+.content h2 {
+    margin-bottom: 15px;
+    color: #1e40af;
+}
+
+.content > p {
+    margin-bottom: 25px;
+}
+
+/* =========================
+   CSS GRID CARDS
+========================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    grid-area: footer;
+
+    background-color: #0f172a;
+    color: white;
+
+    text-align: center;
+
+    padding: 15px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .container {
+        grid-template-columns: 180px 1fr;
+    }
+
+    .header {
+        padding: 20px;
+    }
+
+    .navbar {
+        gap: 15px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        grid-template-rows: auto auto 1fr auto;
+
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "content"
+            "footer";
+    }
+
+    /* Navbar menjadi vertikal */
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        text-align: center;
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Content */
+    .content {
+        padding: 20px;
+    }
+
+    /* Card menjadi satu kolom */
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
